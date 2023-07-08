@@ -29,6 +29,8 @@ Route::get('/', function () {
 
 Route::post('/login', [LoginController::class, 'login'])->name('login');
 
+Route::get('/create-admin', [LoginController::class, 'createAdmin'])->name('createAdmin');
+
 Route::middleware('auth')->group(function () {
     Route::get('/szukaj', function () {
         return view('app.search');

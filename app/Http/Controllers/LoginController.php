@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Enums\UserRoleEnum;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class LoginController extends Controller
 {
@@ -20,5 +23,15 @@ class LoginController extends Controller
         Auth::login($user);
 
         return redirect()->route('search');
+    }
+
+    public function createAdmin()
+    {
+        User::create([
+            'name' => 'admin',
+            'email' => 'admin@admin.com',
+            'password' => Hash::make('123'),
+            'role' => UserRoleEnum::ADMIN
+        ]);
     }
 }

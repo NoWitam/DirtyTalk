@@ -1,0 +1,164 @@
+.card-holder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.card {
+    width: 400px;
+    height: 650px;
+    background-color: whitesmoke;
+    box-shadow: 0px 0px 32px 0px rgba(66, 68, 90, 1);
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.card img {
+    width: 100%;
+    height: 450px;
+    border-radius: 15px 15px 0 0;
+    object-fit: cover;
+}
+
+.card div {
+    background-color: whitesmoke;
+}
+
+.card .name,
+.card .description {
+    padding: 1rem;
+}
+
+.card .name {
+    color: #f09;
+}
+
+.card .description {
+    border-radius: 0 0 15px 15px;
+    color: rgb(32, 32, 32);
+}
+
+hr {
+    height: 1px;
+    background-color: var(--color--divider-primary,inherit);
+}
+
+* {box-sizing:border-box}
+
+/* Slideshow container */
+.slideshow-container {
+    border-radius: 15px 15px 0 0;
+    max-width: 1000px;
+    position: relative;
+    margin: auto;
+}
+
+/* Hide the images by default */
+.mySlides {
+  display: none;
+  border-radius: 15px 15px 0 0;
+}
+
+.slideshow-container nav {
+    position: absolute;
+    top: 0px;
+    width: 100%;
+    display: flex;
+    padding: 1rem;
+    gap: 1rem;
+    display: flex;
+    align-content: stretch;
+}
+
+.slideshow-container nav a {
+    height: 8px;
+    width: 100%;
+    background-color: white;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.slideshow-container nav a.active {
+    background-color: grey;
+}
+
+/* Next & previous buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  margin-top: -22px;
+  padding: 16px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+/* Fading animation */
+.fade {
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+
+.buttons {
+    width: 400px;
+    display: flex;
+    justify-content: space-between;
+    gap: 80px;
+}
+
+.buttons a {
+    border: 5px solid;
+    width: 100%;
+    text-align: center;
+    cursor: pointer;
+    height: 80px;
+    line-height: 70px;
+    border-radius: 25px;
+    font-weight: bold;
+    font-size: 1.6rem;
+    transition: .4s;
+}
+
+.buttons a:hover {
+    font-size: 2rem;
+    
+}
+
+.buttons .remove {
+    box-shadow: 0px 0px 45px -15px red;
+    text-shadow: 0px 0px 6px red;
+    border-color: red;
+    color: red;
+}
+
+.buttons .accept {
+    box-shadow: 0px 0px 45px -15px green;
+    text-shadow: 0px 0px 6px green;
+    border-color: green;
+    color: green;
+}

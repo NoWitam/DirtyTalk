@@ -1,0 +1,89 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-image: url("/img/welcome.jpeg"); 
+}
+
+h1 {
+    font-size: 6rem;
+    margin-bottom: 1rem;
+}
+
+h2 {
+    font-size: 3rem;
+}
+
+.content {
+    width: 70%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    min-width: 400px;
+    border: 0.2rem solid #fff;
+    border-radius: 2rem;
+    padding: 2rem;
+    box-shadow: 0 0 .2rem #fff,
+              0 0 .2rem #fff,
+              0 0 2rem #bc13fe,
+              0 0 0.8rem #bc13fe,
+              0 0 2.8rem #bc13fe,
+              inset 0 0 1.3rem #bc13fe; 
+}
+
+.neonText {
+    color: #fff;
+    text-shadow:
+      0 0 7px #fff,
+      0 0 10px #fff,
+      0 0 21px #fff,
+      0 0 42px #f09,
+      0 0 82px #f09,
+      0 0 92px #f09,
+      0 0 102px #f09,
+      0 0 151px #f09;
+}
+
+.text-center {
+    text-align: center;
+}
+
+input {
+    font-weight: bold;
+    font-size: 2rem;
+    color: white;
+    outline: none;
+    border: 0.2rem solid #fff;
+    border-radius: 2rem;
+    padding: 2rem;
+    background-color: transparent;
+    box-shadow: 0 0 .2rem #fff,
+              0 0 .2rem #fff,
+              0 0 2rem #bc13fe,
+              0 0 0.8rem #bc13fe,
+              0 0 2.8rem #bc13fe,
+              inset 0 0 1.3rem #bc13fe;  
+}
+
+input[type="submit"] {
+    color: #0fa;
+    cursor: pointer;
+    box-shadow: 0 0 .2rem #fff,
+                0 0 .2rem #fff,
+                0 0 2rem #0fa,
+                0 0 0.8rem #0fa,
+                0 0 2.8rem #0fae,
+                inset 0 0 1.3rem #0fa; 
+}
+
+

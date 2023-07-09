@@ -42,7 +42,7 @@ class MessageResponse extends Command
         } else {
             for($i=0; $i<20; $i++)
             {
-                Log::info("Task " . $number . " call " . $i);
+                Log::info("Task " . $number . " calla " . $i);
                 sleep(1);
             }
         }

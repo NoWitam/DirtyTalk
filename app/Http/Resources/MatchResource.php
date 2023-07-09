@@ -17,7 +17,7 @@ class MatchResource extends CollectionResource
         $photos = [];
         foreach($this->images as $image) 
         {
-            $photos[] = $image->path;
+            $photos[] = route('file', ['file' => $image->id]);
         }
 
         return [

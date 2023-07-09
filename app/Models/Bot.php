@@ -6,7 +6,6 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
-use Illuminate\Support\Facades\Storage;
 
 class Bot extends Model
 {
@@ -33,9 +32,17 @@ class Bot extends Model
         });
     }
 
+    public function matches(): BelongsToMany
+    {
+        return $this->belongsToMany(User::class, 'pairs')
+                        ->using(Pair::class)
+                        ->wherePivot('accept', true);
+    }
+
     public function users(): BelongsToMany
     {
-        return $this->belongsToMany(User::class, 'pairs');
+        return $this->belongsToMany(User::class, 'pairs')
+                        ->using(Pair::class);
     } 
 
     public function images(): MorphMany

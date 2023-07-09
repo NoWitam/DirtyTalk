@@ -2,7 +2,6 @@
 
 @push('head')
     <link rel="stylesheet" href="{{ asset('css/admin.css') }}">
-    @livewireStyles
 @endpush
 
 @section('body')
@@ -21,6 +20,4 @@
 
 
     @yield('content')
-
-    @livewireScripts
 @endsection

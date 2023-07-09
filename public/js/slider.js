@@ -1,8 +1,13 @@
 let slideIndex = 1;
 
-window.onload= function(){
-    showSlides(slideIndex);
+window.onload = function() {
+  showSlides(slideIndex);
 }
+
+window.addEventListener('match', event => {
+  slideIndex = 1;
+  showSlides(slideIndex);
+})
 
 // Next/previous controls
 function plusSlides(n) {

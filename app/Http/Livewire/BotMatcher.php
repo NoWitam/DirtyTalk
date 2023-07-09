@@ -22,6 +22,16 @@ class BotMatcher extends Component
         });
     }
 
+    public function match(bool $accept)
+    {
+        if($this->bot) {
+            Auth::user()->matches()->attach($this->bot['id'], ['accept' => $accept]);
+            Cache::forget('showed_match.' . Auth::id());
+            $this->mount();
+            $this->dispatchBrowserEvent('match', ['accept' => $accept]);
+        }
+    }
+
     public function render()
     {
         return view('livewire.bot-matcher');

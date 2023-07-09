@@ -21,9 +21,10 @@ class User extends \Illuminate\Foundation\Auth\User
         'role'
     ];
 
-    public function bots(): BelongsToMany
+    public function matches(): BelongsToMany
     {
         return $this->belongsToMany(Bot::class, 'pairs')
+                        ->using(Pair::class)
                         ->wherePivot('accept', true);
     } 
     

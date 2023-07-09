@@ -12,11 +12,12 @@
         </title>
 
         @stack('head')
-
+        @livewireStyles
     </head>
     <body>
 
         @yield('body')
         @stack('js')
+        @livewireScripts
     </body>
 </html>

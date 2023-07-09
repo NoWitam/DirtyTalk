@@ -1,22 +1,22 @@
 <div class="card-holder">
-    <div>
-        <div class="card">   
-            @isset($bot)
+
+    @isset($bot)
+        <div>
+            <div class="card">   
                 <div class="slideshow-container">
 
                     @foreach ($bot['photos'] as $photo)
                         <div class="mySlides fade">
-                            <img src="{{ Storage::url('public/'.$photo) }}" alt="{{ $bot['name'] }} zdjęcie numer {{ $loop->iteration }}">
+                            <img src="{{ $photo }}" alt="{{ $bot['name'] }} zdjęcie numer {{ $loop->iteration }}">
                         </div>
                     @endforeach
 
-                
-                    <!-- Next and previous buttons -->
                     <nav>
-                        <a class="dot active" onclick="currentSlide(1)"></a>
-                        <a class="dot" onclick="currentSlide(2)"></a>
-                        <a class="dot" onclick="currentSlide(3)"></a>
+                        @foreach ($bot['photos'] as $photo)
+                            <a class="dot @if($loop->iteration == 1) active @endif" onclick="currentSlide({{ $loop->iteration }})"></a>
+                        @endforeach
                     </nav>
+
                     <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
                     <a class="next" onclick="plusSlides(1)">&#10095;</a>
                 </div>
@@ -27,14 +27,17 @@
                 <div class="description">
                     Miła brunetka lubiąca podróżować i poznawać nowych ludzi.
                 </div>
-            @endisset
+            </div>
         </div>
-    </div>
 
-    <div class="buttons">
-        <a class="remove">Odrzuć</a>
-        <a class="accept">Napisz</a>
-    </div>
+        <div class="buttons">
+            <button wire:click="match(false)" class="remove">Odrzuć</button>
+            <button wire:click="match(true)" class="accept">Napisz</button>
+        </div>
+    @else
+        <h2>Brak pasujących do ciebie par. Zajrzyj tu kiedy indziej ..</h2>
+    @endisset
+
 
 </div>
 

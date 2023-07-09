@@ -131,7 +131,7 @@ hr {
     gap: 80px;
 }
 
-.buttons a {
+.buttons button {
     border: 5px solid;
     width: 100%;
     text-align: center;
@@ -144,7 +144,7 @@ hr {
     transition: .4s;
 }
 
-.buttons a:hover {
+.buttons button:hover {
     font-size: 2rem;
     
 }

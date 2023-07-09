@@ -15,14 +15,11 @@ class BotMatcher extends Component
     public function mount()
     {
         $this->bot = Cache::remember('showed_match.' . Auth::id(), 2 * 60 * 60, function () {
-            return MatchResource::one(
-                Bot::with('images')->whereDoesntHave('users', function (Builder $query) {
-                    $query->where('users.id', Auth::id());
-                })->inRandomOrder()->first()
-            );
+            $bot = Bot::with('images')->whereDoesntHave('users', function (Builder $query) {
+                $query->where('users.id', Auth::id());
+            })->inRandomOrder()->first();
+            return $bot ? MatchResource::one($bot) : null;
         });
-
-        dump(storage_path('public/' . $this->bot['photos'][0]));
     }
 
     public function render()

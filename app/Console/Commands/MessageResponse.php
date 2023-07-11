@@ -35,7 +35,6 @@ class MessageResponse extends Command
      */
     public function handle()
     {
-        Log::info("into command");
         $time = [];
         $match = Pair::find($this->argument('match'));
 

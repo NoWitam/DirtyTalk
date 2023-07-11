@@ -34,7 +34,6 @@ class UserController extends Controller
 
     public function dump()
     {
-        dump(Cache::get('xd'));
         dd(Job::all());
     }
 }

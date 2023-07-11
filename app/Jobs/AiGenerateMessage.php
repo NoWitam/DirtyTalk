@@ -33,8 +33,6 @@ class AiGenerateMessage implements ShouldQueue
      */
     public function handle(): void
     {
-        Cache::put('xd', 'xd');
-        Log::info("Handle Job");
         AiHelper::callInBackground($this->pairUuid);
     }
 

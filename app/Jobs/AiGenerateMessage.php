@@ -6,11 +6,11 @@ use App\Helpers\AiHelper;
 use App\Models\Pair;
 use DateTime;
 use Illuminate\Bus\Queueable;
-use Illuminate\Contracts\Queue\ShouldBeUnique;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
+use Illuminate\Support\Facades\Log;
 
 class AiGenerateMessage implements ShouldQueue
 {
@@ -32,6 +32,7 @@ class AiGenerateMessage implements ShouldQueue
      */
     public function handle(): void
     {
+        Log::inf("Handle Job");
         AiHelper::callInBackground($this->pairUuid);
     }
 

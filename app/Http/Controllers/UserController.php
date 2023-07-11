@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Events\BotReplyReceived;
 use App\Helpers\AiHelper;
 use App\Http\Resources\UserResource;
+use App\Models\Job;
 use App\Models\Message;
 use App\Models\Pair;
 use App\Models\User;
@@ -32,6 +33,6 @@ class UserController extends Controller
 
     public function dump()
     {
-        dd(Cache::get('ai-response-fail.00cd57fa-b55c-4415-821e-64b62dfcd4ed'));
+        dd(Job::all());
     }
 }

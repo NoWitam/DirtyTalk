@@ -1,8 +1,19 @@
-<div class="card-holder">
+@extends('layouts.app')
 
-    @isset($bot)
-        <div>
-            <div class="card">   
+@section('title', $bot ? $bot['name'] : 'Pary')
+
+@push('head')
+    <link rel="stylesheet" href="{{ asset('css/matches.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/search.css') }}">
+@endpush
+
+@section('content')
+    @isset($pair)
+        <div id="matches">
+
+            @livewire('chat', ['pair' => $pair])
+            <hr>
+            <div id="profile">
                 <div class="slideshow-container">
 
                     @foreach ($bot['photos'] as $photo)
@@ -28,18 +39,10 @@
                     {{ $bot['description'] }}
                 </div>
             </div>
-        </div>
 
-        <div class="buttons">
-            <button wire:click="match(false)" class="remove">Odrzuć</button>
-            <button wire:click="match(true)" class="accept">Napisz</button>
         </div>
-    @else
-        <h2>Brak pasujących do ciebie par. Zajrzyj tu kiedy indziej ..</h2>
     @endisset
-
-
-</div>
+@endsection
 
 @push('js')
     <script src="{{ asset('js/slider.js') }}"></script>

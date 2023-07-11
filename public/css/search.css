@@ -42,19 +42,12 @@
     color: rgb(32, 32, 32);
 }
 
-hr {
-    height: 1px;
-    background-color: var(--color--divider-primary,inherit);
-}
-
-* {box-sizing:border-box}
-
 /* Slideshow container */
 .slideshow-container {
     border-radius: 15px 15px 0 0;
-    max-width: 1000px;
+    min-width: 400px;
     position: relative;
-    margin: auto;
+    margin: 0;
 }
 
 /* Hide the images by default */
@@ -66,7 +59,7 @@ hr {
 .slideshow-container nav {
     position: absolute;
     top: 0px;
-    width: 100%;
+    width: calc(100% - 2rem);
     display: flex;
     padding: 1rem;
     gap: 1rem;

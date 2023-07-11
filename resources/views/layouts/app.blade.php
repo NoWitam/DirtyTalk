@@ -16,6 +16,11 @@
             <a @if(Route::is('search')) class="active" @endif href="{{ route('search') }}">Szukaj</a>
             <a @if(Route::is('matches')) class="active" @endif href="{{ route('matches') }}">Pary</a>
         </nav>
+        
+        <hr>
+
+        @livewire('matches-tab')
+
     </header>
 
     <div class="content">

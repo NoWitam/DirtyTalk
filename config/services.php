@@ -31,4 +31,10 @@ return [
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
 
+    'edenai' => [
+        'key' => env('EDENAI_KEY'),
+        'endpoint' => env('EDENAI_CHAT_ENDPOINT'),
+        'debounce' => env('MESSAGE_DEBOUNCE_TIME')
+    ],
+
 ];

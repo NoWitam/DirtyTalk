@@ -25,7 +25,8 @@ class User extends \Illuminate\Foundation\Auth\User
     {
         return $this->belongsToMany(Bot::class, 'pairs')
                         ->using(Pair::class)
-                        ->wherePivot('accept', true);
+                        ->wherePivot('accept', true)
+                        ->withPivot('id');
     } 
     
     /**

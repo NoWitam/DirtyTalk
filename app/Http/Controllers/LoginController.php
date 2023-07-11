@@ -20,9 +20,16 @@ class LoginController extends Controller
 
         $user = Auth::getProvider()->retrieveByCredentials($credentials);
 
-        Auth::login($user);
+        Auth::login($user, true);
 
         return redirect()->route('search');
+    }
+
+    public function logout()
+    {
+        Auth::logout();
+
+        return redirect()->route('welcome');
     }
 
     public function createAdmin()

@@ -1,0 +1,116 @@
+#matches {
+    display: flex;
+    height: 100%;
+    width: 100%;
+}
+
+#chat {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.text {
+    width: calc(100% - 120px);
+    height: 100%;
+    overflow-y: scroll;
+    padding: 30px 60px;
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 10px;
+}
+
+.text .center-container {
+    width: 100%;
+}
+
+.text > div {
+    font-size: 1.2rem;
+    display: flex;
+}
+
+.text > div > div {
+    width: fit-content;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.text .user {
+    justify-content: flex-end;
+}
+
+.text .user > div {
+    background-color: #bc13fe;
+    color: white;
+}
+
+.text .talker {
+    justify-content: flex-start;
+}
+
+.text .talker > div {
+    background-color: white;
+}
+
+.input {
+    width: 100%;
+    height: 100px;
+    display: flex;
+    align-items: center;
+}
+
+.input textarea {
+    resize: none;
+    height: 40px;
+    margin: 0 30px;
+    width: 100%;
+    outline: none;
+    border: 0;
+    border-radius: 50px;
+    font-size: 1.2rem;
+    line-height: 1.2rem;
+    padding: 15px 50px;
+    display: table-cell; vertical-align: middle
+}
+
+.input button {
+    height: 70px;
+    outline: none;
+    border: 0;
+    aspect-ratio: 1/1;
+    margin-right: 30px;
+    cursor: pointer;
+    background: transparent;
+    border-radius: 50%;
+}
+
+.input button:hover {
+    background: grey;
+}
+
+.input button img {
+    width: 80%;
+    height: 80%;
+}
+
+#profile {
+    width: 400px;
+    height: 100%;
+    background-color: whitesmoke;
+}
+
+#profile img {
+    width: 400px;
+}
+
+#profile .name {
+   padding: 15px;
+   color: #f09
+}
+
+#profile .description {
+    padding: 15px;
+}
+
+

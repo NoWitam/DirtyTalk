@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\FileController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\PairController;
 use App\Http\Controllers\UserController;
 use App\Http\Livewire\BotTable;
 use App\Http\Livewire\UserCreate;
@@ -32,15 +33,18 @@ Route::post('/login', [LoginController::class, 'login'])->name('login');
 Route::get('/create-admin', [LoginController::class, 'createAdmin'])->name('createAdmin');
 
 Route::middleware('auth')->group(function () {
+
+    Route::get('/wyloguj', [LoginController::class, 'logout'])->name('logout');
+
     Route::get('/szukaj', function () {
         return view('app.search');
     })->name('search');
     
-    Route::get('/pary', function () {
-        return view('app.matches');
-    })->name('matches');
+    Route::get('/pary/{pair?}', [PairController::class, 'view'])->name('matches');
 
-    Route::get('files/{file}', [FileController::class, 'show'])->name('file');
+    Route::get('/files/{file}', [FileController::class, 'show'])->name('file');
+
+    Route::get('/dd', [UserController::class, 'dump']);
 });
 
 
@@ -48,9 +52,9 @@ Route::middleware(IsAdmin::class)->prefix('admin')->name('admin.')->group(functi
 
     Route::get('/', function () { return view('layouts.admin'); });
     
-    Route::get('users', UserTable::class)->name('users');
+    Route::get('/users', UserTable::class)->name('users');
 
-    Route::get('bots', BotTable::class)->name('bots');
+    Route::get('/bots', BotTable::class)->name('bots');
 
 });
 

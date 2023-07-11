@@ -4,6 +4,7 @@ namespace App\Http\Livewire;
 
 use App\Http\Resources\MatchResource;
 use App\Models\Bot;
+use App\Models\Pair;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Cache;
@@ -25,10 +26,16 @@ class BotMatcher extends Component
     public function match(bool $accept)
     {
         if($this->bot) {
-            Auth::user()->matches()->attach($this->bot['id'], ['accept' => $accept]);
-            Cache::forget('showed_match.' . Auth::id());
+            $pair = Pair::create([
+                'user_id' => Auth::id(),
+                'bot_id' => $this->bot['id'],
+                'accept' => $accept
+            ]);
             $this->mount();
             $this->dispatchBrowserEvent('match', ['accept' => $accept]);
+            if($accept) {
+                return redirect()->route('matches', ['pair' => $pair]);
+            }
         }
     }
 

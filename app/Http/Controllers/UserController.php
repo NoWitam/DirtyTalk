@@ -10,6 +10,7 @@ use App\Models\Message;
 use App\Models\Pair;
 use App\Models\User;
 use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\Log;
 
 class UserController extends Controller
 {
@@ -33,6 +34,7 @@ class UserController extends Controller
 
     public function dump()
     {
+        Log::info("into dd");
         dd(Job::all());
     }
 }

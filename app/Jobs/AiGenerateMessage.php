@@ -10,6 +10,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Log;
 
 class AiGenerateMessage implements ShouldQueue
@@ -32,6 +33,7 @@ class AiGenerateMessage implements ShouldQueue
      */
     public function handle(): void
     {
+        Cache::put('xd', 'xd');
         Log::info("Handle Job");
         AiHelper::callInBackground($this->pairUuid);
     }
